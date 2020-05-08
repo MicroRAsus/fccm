@@ -36,7 +36,8 @@ After completing this lab, you will be able to:
 Clone the open source Vitis Accelerated Libraries repository in your home directory
 
 ```
-git clone https://github.com/Xilinx/Vitis_Libraries.git ~
+cd ~
+git clone https://github.com/Xilinx/Vitis_Libraries.git 
 ```
 
 ### Build FPGA binary file
@@ -52,7 +53,7 @@ git clone https://github.com/Xilinx/Vitis_Libraries.git ~
 	It is crucial to define `XCL_EMULATION_MODE`. Let's start with `sw_emu`. We also need to define the target platform, this will be stored in the variable `PFM`, update this path appropriately. Finally, we are going to set up `VITIS_LIBS`. This variabe will point to the `include` directory of vision library L1.
 
 	```sh
-	export XCL_EMULATION_MODE=<sw_emu|hw_emu|hw>
+	export XCL_EMULATION_MODE=sw_emu
 	export PFM=~/aws-fpga/Vitis/aws_platform/xilinx_aws-vu9p-f1_shell-v04261818_201920_1/xilinx_aws-vu9p-f1_shell-v04261818_201920_1.xpfm
 	export VITIS_LIBS=~/Vitis_Libraries/vision/L1/include
 	```
@@ -175,7 +176,7 @@ Since compilation for hardware target will take long time, the FPGA binary is pr
 
   ```sh
   # Copy precompiled solution
-  cp ~/compute_acceleration/solutions/vision_lab/vision_example.awsxclbin
+  cp ~/compute_acceleration/solutions/vision_lab/vision_example.awsxclbin .
   # Run resize kernel with a resize factor of 3
   ./vision_example vision_example.awsxclbin 0 src/data/fish_wallpaper.jpg 3
   # Run resize & blur kernel with a resize factor of 4
